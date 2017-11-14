@@ -8,8 +8,11 @@ const app = (module.exports = express());
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get("/", function(req, res, next) {
+  res.send("Welcome to Jonathan's Timestamp Microservice API! ");
+});
 // Get call to return JSON that formats natural and unix state
-app.get("/dateValues/:date", function(req, res, next) {
+app.get("/:date", function(req, res, next) {
   // request data for date
   const date = req.params.date;
   // options for formatting date
